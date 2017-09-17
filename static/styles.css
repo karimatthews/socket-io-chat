@@ -1,43 +1,72 @@
 
+/*
+Colours:
+#0F1626;  Navy Blue
+#AB987A; Leather
+#FF533D;  Coral
+#F5F5F5;  Eggshell
+*/
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 1em;
+    background-color: #0F1626;
   }
 
   body {
-    font: 13px Helvetica, Arial;
-    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    /*width: 100%;*/
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+    margin: 0px 105px;
+    overflow-x: hidden;
   }
 
   form {
-    background: #000;
-    padding: 3px;
-    position: fixed;
-    bottom: 0;
+    background: #0F1626;
+    padding: 0px;
+    min-height: 40px;
+    /*position: fixed;*/
+    margin-bottom: 0;
+    margin-top: 15px;
     width: 100%;
+    display: flex;
   }
 
   form input {
     border: 0;
     padding: 10px;
-    width: 90%;
+    width: 100%;
+    max-width: calc(100% - 105px);
     margin-right: .5%;
+    background-color: white;
+    border-radius: 5px;
   }
 
   form button {
-    width: 9%;
-    background: rgb(130, 224, 255);
+    min-width: 110px;
+    background: #AB987A;
     border: none;
     padding: 10px;
+    color: #F2F2F2;
+    border-radius: 5px;
+    margin-right: 105;
   }
 
   #messages {
     list-style-type: none;
     margin: 0;
-    padding: 10px 40px;;
-    background-color: navy;
-    height: 100vh;
+    padding-right: 200px;
+    background-color: #0F1626;
+    overflow-y: auto;
+    margin-top:auto;
+    /*width: 110%;*/
+    width: calc(100% + 200px);
+    overflow-x: hidden;
   }
 
   .message-container {
@@ -46,16 +75,17 @@
   }
 
   .message {
-    background-color: pink;
-    padding: 10px;
+    background-color: #F5F5F5;
+    padding: 10px 15px;
     width: fit-content;
     max-width: 80%;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .right {
     margin-right: 0;
     margin-left: auto;
-    background-color: orange;
+    background-color: #FF533D;
+    color: #F2F2F2;
   }
