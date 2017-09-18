@@ -1,16 +1,35 @@
-
-// keep message scrolled to the bottom
-function updateScroll(){
-  var messages = document.getElementById("messages");
-  messages.scrollTop = messages.scrollHeight;
-  }
-
+// The client side javascript
 
 $(function () {
   var socket = io(); // magic library stuff
+  var username
+
+  // keep message scrolled to the bottom
+  function updateScroll(){
+    var messages = document.getElementById("messages");
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  //Set nickname of user
+  $('#nameForm').submit(function(){
+
+    username = $('#nameInput').val(); //set username varaible
+
+    //remove nameForm div
+    $('#nameForm').remove();
+
+    // enable message form input
+    $("#m").prop('disabled', false);
+
+    // update opacity of message form
+    $('#messageForm').css('opacity', '1.0')
+
+    return false; // don't do any form related things that would normally happen
+
+  });
 
   //Handles messages sent by the user
-  $('form').submit(function(){
+  $('#messageForm').submit(function(){
     //If form input is empty don't print message
     if ($('#m').val() == "") {return false;}
 
