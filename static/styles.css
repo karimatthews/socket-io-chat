@@ -24,6 +24,7 @@ Colours:
   }
 
   form {
+    font-size: 1.1em;
     background: #0F1626;
     padding: 0px;
     min-height: 40px;
@@ -36,6 +37,7 @@ Colours:
   }
 
   form input {
+    font-size: 1.1em;
     border: 0;
     padding: 10px;
     width: 100%;
@@ -46,6 +48,7 @@ Colours:
   }
 
   form button {
+    font-size: 1.1em;
     min-width: 110px;
     background: #AB987A;
     border: none;
@@ -79,6 +82,13 @@ Colours:
     max-width: 80%;
     border-radius: 5px;
     margin-bottom: 5px;
+  }
+
+  .update {
+    color: #F5F5F5;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 15px;
   }
 
   .right {

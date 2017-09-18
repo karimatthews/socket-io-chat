@@ -8,6 +8,8 @@ function updateScroll(){
 
 $(function () {
   var socket = io(); // magic library stuff
+
+  //Handles messages sent by the user
   $('form').submit(function(){
     //If form input is empty don't print message
     if ($('#m').val() == "") {return false;}
@@ -15,20 +17,36 @@ $(function () {
     socket.emit('chat message', $('#m').val()); // key: 'chat message' value 'form input'
     $('#messages').append(
       $('<div>').addClass("message-container"
-    ).append(
+    ).append(   // append the message when the user presses enter
       $('<div>').text($('#m').val()).addClass("message right")
-    )); // append the message when the user presses enter
+    ));
+
     updateScroll();
+
     $('#m').val(''); // clears the message input form
+
     return false; // don't do any form related things that would normally happen
   });
 
+  //Handles messages sent by other users
   socket.on('chat message', function(msg){
     $('#messages').append(
       $('<div>').addClass("message-container"
-    ).append(
+    ).append( // adds the new message to the messages list
       $('<div>').text(msg).addClass("message")
-    )); // adds the new message to the messages list
+    ));
+
+    updateScroll();
+  });
+
+  //Handles updates
+  socket.on('chat update', function(msg){
+    $('#messages').append(
+      $('<div>').addClass("message-container"
+    ).append( // adds the new message to the messages list
+      $('<div>').text(msg).addClass("update")
+    ));
+
     updateScroll();
   });
 });
