@@ -12,20 +12,24 @@ $(function () {
 
   //Set nickname of user
   $('#nameForm').submit(function(){
+    username = $('#nameInput').val();   //set username varaible
 
-    username = $('#nameInput').val(); //set username varaible
+    $('#nameForm').remove();   //remove nameForm div
 
-    //remove nameForm div
-    $('#nameForm').remove();
+    $('#messages').append(
+      $('<div>').addClass("message-container"
+    ).append( //
+      $('<div>').text('Hi ' + username + ', welcome to chat application.').addClass("update")
+    ));
 
-    // enable message form input
-    $("#m").prop('disabled', false);
+    $("#m").prop('disabled', false);  // enable message form input
 
-    // update opacity of message form
-    $('#messageForm').css('opacity', '1.0')
+    $('#messages').css('opacity', '1.0')   // update opacity of message form
+    $('#messageForm').css('opacity', '1.0')   // update opacity of message form
 
-    return false; // don't do any form related things that would normally happen
+    $('#m').focus(); //focus on message input
 
+    return false;   // don't do any form related things that would normally happen
   });
 
   //Handles messages sent by the user
@@ -51,6 +55,8 @@ $(function () {
   socket.on('chat message', function(msg){
     $('#messages').append(
       $('<div>').addClass("message-container"
+    ).append( //
+      $('<div>').text(username).addClass("display-username")
     ).append( // adds the new message to the messages list
       $('<div>').text(msg).addClass("message")
     ));

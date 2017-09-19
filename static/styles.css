@@ -7,6 +7,10 @@ Colours:
 #F5F5F5;  Eggshell
 */
 
+  * {
+    box-sizing: border-box;
+  }
+
   html {
     font-size: 1em;
     background-color: #0F1626;
@@ -25,11 +29,12 @@ Colours:
 
   #nameForm {
     margin: auto;
-    width: fit-content;
-    padding: 20px 10px;
+    width: 100%;
+    /*padding: 20px 10px;*/
   }
 
   #nameForm input {
+    width: 100%;
     font-size: 2em;
     padding: 20px 10px;
   }
@@ -84,11 +89,13 @@ Colours:
     /*width: calc(100% + 10px);*/
     /*width: calc(100% + 100px);*/
     overflow-x: hidden;
+    opacity: 0.4;
   }
 
   .message-container {
     width: 100%;
     display: flex;
+    flex-direction: column;
   }
 
   .message {
@@ -105,6 +112,14 @@ Colours:
     margin-left: auto;
     margin-right: auto;
     padding: 10px 15px;
+  }
+
+  .display-username {
+    color: #F5F5F5;
+    margin-left: 0;
+    margin-right: auto;
+    padding-top: 5px;
+    padding-left: 3px;
   }
 
   .right {
@@ -151,10 +166,26 @@ Colours:
   .message {
     margin-bottom: 10px;
   }
+
+  #nameForm {
+    padding: 20px 0px;
+    width: 100%;
+  }
+
+  #nameForm input {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 100vw;
+    /*margin-right: 0;*/
+    display: flex;
+
+  }
 }
 
 
 /* applies only if the screen is wider than 768px*/
 @media screen and (min-width: 768px) {
-
+  #messages {
+    padding-right: 0px;
+  }
 }
