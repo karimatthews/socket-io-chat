@@ -1,6 +1,10 @@
 // The client side javascript
+$(document).ready( function () {
+  $('nameInput').click();
+});
 
 $(function () {
+
   var socket = io(); // magic library stuff
   var username
 
@@ -22,7 +26,7 @@ $(function () {
     ));
 
     $("#m").prop('disabled', false);  // enable message form input
-    $('#messages').css('opacity', '1.0')   // update opacity of message form
+    $('#messages').css('display', 'block')   //
     $('#messageForm').css('opacity', '1.0')   // update opacity of message form
     $('#m').focus(); //focus on message input
     return false;   // don't do any form related things that would normally happen

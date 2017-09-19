@@ -1,36 +1,47 @@
+/*------------------------------------*\
+  #ELEMENTS
 
-/*
-Colours:
 #0F1626;  Navy Blue
 #AB987A; Leather
 #FF533D;  Coral
 #F5F5F5;  Eggshell
-*/
+\*------------------------------------*/
+
+
+/*------------------------------------*\
+  #ELEMENTS
+\*------------------------------------*/
 
   * {
     box-sizing: border-box;
+    font-size: 1em;
   }
 
   html {
-    font-size: 1em;
     background-color: #0F1626;
     box-sizing: border-box;
+    width: 100%;
   }
 
   body {
     font-family: Helvetica, Arial, sans-serif;
-    /*width: 100%;*/
     height: 100vh;
     display: flex;
     flex-direction: column;
-    margin: 0px 105px;
+    margin: 0;
     overflow-x: hidden;
   }
+
+
+
+/*------------------------------------*\
+ #FORMS
+\*------------------------------------*/
 
   #nameForm {
     margin: auto;
     width: 100%;
-    /*padding: 20px 10px;*/
+    max-width: 500px;
   }
 
   #nameForm input {
@@ -69,27 +80,28 @@ Colours:
   }
 
   #messageForm button {
-    font-size: 1.1em;
-    min-width: 110px;
-    background: #AB987A;
-    border: none;
-    padding: 10px;
-    color: #F2F2F2;
-    border-radius: 5px;
-    margin-right: 105;
+    display: none;
+    width: 0;
   }
+
+
+
+  /*------------------------------------*\
+   #MESSAGES
+  \*------------------------------------*/
 
   #messages {
     margin: 0;
     padding-right: 150px;
     background-color: #0F1626;
-    overflow-y: auto;
+    overflow-y: scroll;
     margin-top:auto;
     width: 100%;
     /*width: calc(100% + 10px);*/
     /*width: calc(100% + 100px);*/
     overflow-x: hidden;
-    opacity: 0.4;
+    display: none;
+    flex-direction: column;
   }
 
   .message-container {
@@ -122,6 +134,14 @@ Colours:
     padding-left: 3px;
   }
 
+
+
+
+
+/*------------------------------------*\
+ #MODIFIERS
+\*------------------------------------*/
+
   .right {
     margin-right: 0;
     margin-left: auto;
@@ -131,24 +151,13 @@ Colours:
 
 
 
+/*------------------------------------*\
+ #MOBILE STYLES
+\*------------------------------------*/
 /* applies only if the screen is narrower than 768px*/
 @media screen and (max-width: 768px) {
-  * {
-    font-size: 1em;
-  }
 
-  html {
-    width: 100%;
-  }
 
-  body {
-    margin: 0;
-  }
-
-  #messageForm button {
-    display: none;
-    width: 0;
-  }
 
   #messageForm input {
     max-width: 100vw;
@@ -183,9 +192,28 @@ Colours:
 }
 
 
+/*------------------------------------*\
+ #DESKTOP STYLES
+\*------------------------------------*/
 /* applies only if the screen is wider than 768px*/
 @media screen and (min-width: 768px) {
   #messages {
     padding-right: 0px;
+  }
+
+  body {
+    margin: 0px 105px;
+  }
+
+  #messageForm button {
+    font-size: 1.1em;
+    min-width: 110px;
+    background: #AB987A;
+    border: none;
+    padding: 10px;
+    color: #F2F2F2;
+    border-radius: 5px;
+    margin-right: 105;
+    display: block;
   }
 }
