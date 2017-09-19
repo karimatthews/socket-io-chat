@@ -59,7 +59,6 @@
     background: #0F1626;
     padding: 0px;
     min-height: 40px;
-    /*position: fixed;*/
     margin-bottom: 0;
     margin-top: 15px;
     width: 100%;
@@ -95,16 +94,13 @@
   #messages {
     margin: 0;
     padding: 0px 10px;
-
+    /*padding-right: 20px;*/
     background-color: #0F1626;
     overflow-y: scroll;
     margin-top:auto;
     width: 100%;
-    /*width: calc(100% + 10px);*/
-    /*width: calc(100% + 100px);*/
     overflow-x: hidden;
     display: none;
-    flex-direction: column;
   }
 
   .message-container {
@@ -134,7 +130,7 @@
     color: #F5F5F5;
     margin-left: 0;
     margin-right: auto;
-    padding-top: 5px;
+    margin-top: 5px;
     padding-left: 3px;
   }
 
@@ -167,14 +163,14 @@
   }
 
   #messages {
-    padding-right: 0px;
+    padding: 0px;
+    padding-right: 200px;
+    width: calc(100% + 200px);
   }
 
   #messageForm input {
-    /*min-width: 100vw;
-    height: 50px;
-    border-radius: 0px;*/
     border-radius: 5px;
+    min-width: 100px;
   }
 
   #messageForm button {
@@ -187,6 +183,7 @@
     border-radius: 5px;
     margin-right: 105;
     display: block;
+    height: 50px;
   }
 
   .message {
