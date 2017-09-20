@@ -112,11 +112,14 @@
   .message {
     background-color: #F5F5F5;
     padding: 10px 15px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-left: 8px;
     width: fit-content;
     max-width: 80%;
     border-radius: 5px;
-
     margin-bottom: 10px;
+    word-break: break-all;
   }
 
   .update {
@@ -136,7 +139,14 @@
 
 
 
-
+  .time {
+    opacity: 0.7;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    float: right;
+  }
 
 /*------------------------------------*\
  #MODIFIERS
