@@ -13,21 +13,25 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
 
+  //Identify and join room
+  var roomId = socket.client.request.headers.referer
+  socket.join(roomId)
+
   //Handle connection updates
   console.log('a user connected');
-  socket.broadcast.emit('chat update','A user connected');
+  socket.broadcast.to(roomId).emit('chat update','A user connected');
 
   //Handle disconnection updates
   socket.on('disconnect', function(){
     console.log('user disconnected');
-    io.emit('chat update', 'A user disconnected');
+    io.to(roomId).emit('chat update', 'A user disconnected');
   });
 
   // Broadcast messages sent by other users
   // format: { text: 'msg text', username: 'Boris' }
   socket.on('chat message', function(msg){
     console.log('message: ', msg);
-    socket.broadcast.emit('chat message', msg);
+    socket.broadcast.to(roomId).emit('chat message', msg);
   });
 
 });
