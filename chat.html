@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Chat app</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  </head>
+
+  <body>
+    <form id="nameForm" action="">
+      <input id="nameInput" type = "text" autocomplete="off"
+        placeholder="Choose a name" maxlength="20" autocapitalize:'words' autofocus/>
+      <!-- <button>Submit</button> -->
+    </form>
+
+    <div id="messages">
+    </div>
+    <form id = "messageForm" action="">
+      <input id="m" type = "text" autocomplete="off" placeholder="Type a message" maxlength="1000" disabled/>
+      <button>Send</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src='client.js'></script>
+    <script src="moment-with-locales.js"></script>
+  </body>
+</html>
