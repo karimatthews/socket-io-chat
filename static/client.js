@@ -9,7 +9,13 @@ $(function () {
   var username
 
   // join room
-  socket.emit('join room', document.referrer)
+  var roomName = window.name || document.referrer
+  socket.emit('join room', roomName)
+  if (roomName) {
+    $('#roomName').text("Join the conversation about "+ roomName)
+  } else {
+    $('#roomName').text("Sorry, we don't know where you are")
+  }
 
   // keep message scrolled to the bottom
   function updateScroll(){
