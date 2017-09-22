@@ -24,15 +24,10 @@ io.on('connection', function(socket){
   });
 
   // Broadcast messages sent by other users
+  // format: { text: 'msg text', username: 'Boris' }
   socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
+    console.log('message: ', msg);
     socket.broadcast.emit('chat message', msg);
-  });
-
-  // Broadcast usernames of messages sent by other users
-  socket.on('add username', function(msg){
-    console.log('username: ' + msg);
-    socket.broadcast.emit('add username', msg);
   });
 
 });

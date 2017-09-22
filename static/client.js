@@ -40,8 +40,7 @@ $(function () {
     //If form input is empty don't print message
     if ($('#m').val() == "") {return false;}
 
-    socket.emit('add username', username); // Sends key: 'add username' value 'username'
-    socket.emit('chat message', $('#m').val()); // Sends key: 'chat message' value 'form input'
+    socket.emit('chat message', { text: $('#m').val(), username: username }); // Sends key: 'chat message' value 'form input'
 
     $('#messages').append(
       $('<div>').addClass("message-container"
@@ -60,11 +59,17 @@ $(function () {
   //Handles messages sent by other users
   socket.on('chat message', function(msg){
     var time = moment().format('LT');
-    
+
     $('#messages').append(
       $('<div>').addClass("message-container"
     ).append( // adds the new message to the messages list
-      $('<div>').text(msg).addClass("message")
+      $('<div>').text(msg.username).addClass("display-username")
+    ));
+
+    $('#messages').append(
+      $('<div>').addClass("message-container"
+    ).append( // adds the new message to the messages list
+      $('<div>').text(msg.text).addClass("message")
         .append( // adds the new message to the messages list
           $('<span>').text(time).addClass("time")
         )
