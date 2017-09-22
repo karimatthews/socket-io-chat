@@ -9,7 +9,7 @@ $(function () {
   var username
 
   // join room
-  socket.emit('join room', document.referer)
+  socket.emit('join room', document.referrer)
 
   // keep message scrolled to the bottom
   function updateScroll(){

@@ -11,8 +11,12 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/chat.html');
 });
 
-io.on('connection', function(socket){
+function getRoom(socket) {
+  var rooms = Object.keys(socket.rooms)
+  return rooms[rooms.length - 1]
+}
 
+io.on('connection', function(socket){
   //Join client to room
   socket.on('join room', function(room) {
     console.log('a user joined room', room);
@@ -21,19 +25,19 @@ io.on('connection', function(socket){
 
   //Handle connection updates
   console.log('a user connected');
-  socket.broadcast.to(roomId).emit('chat update','A user connected');
+  socket.broadcast.to(getRoom(socket)).emit('chat update','A user connected');
 
   //Handle disconnection updates
   socket.on('disconnect', function(){
     console.log('user disconnected');
-    io.to(roomId).emit('chat update', 'A user disconnected');
+    io.to(getRoom(socket)).emit('chat update', 'A user disconnected');
   });
 
   // Broadcast messages sent by other users
   // format: { text: 'msg text', username: 'Boris' }
   socket.on('chat message', function(msg){
-    console.log('message: ', msg);
-    socket.broadcast.to(roomId).emit('chat message', msg);
+    console.log('message: ', msg, getRoom(socket));
+    socket.broadcast.to(getRoom(socket)).emit('chat message', msg);
   });
 
 });
