@@ -8,6 +8,8 @@ $(function () {
   var socket = io(); // magic library stuff
   var username
 
+  // join room
+  socket.emit('join room', document.referer)
 
   // keep message scrolled to the bottom
   function updateScroll(){

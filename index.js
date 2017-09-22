@@ -13,12 +13,14 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
 
-  //Identify and join room
-  var roomId = socket.client.request.headers.referer
-  socket.join(roomId)
+  //Join client to room
+  socket.on('join room', function(room) {
+    console.log('a user joined room', room);
+    socket.join(room)
+  })
 
   //Handle connection updates
-  console.log('a user connected', roomId);
+  console.log('a user connected');
   socket.broadcast.to(roomId).emit('chat update','A user connected');
 
   //Handle disconnection updates
