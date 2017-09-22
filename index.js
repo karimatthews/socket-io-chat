@@ -18,7 +18,7 @@ io.on('connection', function(socket){
   socket.join(roomId)
 
   //Handle connection updates
-  console.log('a user connected');
+  console.log('a user connected', roomId);
   socket.broadcast.to(roomId).emit('chat update','A user connected');
 
   //Handle disconnection updates
