@@ -18,14 +18,12 @@ function getRoom(socket) {
 
 io.on('connection', function(socket){
   //Join client to room
+  //Handle connection updates
   socket.on('join room', function(room) {
     console.log('a user joined room', room);
     socket.join(room)
+    socket.broadcast.to(getRoom(socket)).emit('chat update','A user connected');
   })
-
-  //Handle connection updates
-  console.log('a user connected');
-  socket.broadcast.to(getRoom(socket)).emit('chat update','A user connected');
 
   //Handle disconnection updates
   socket.on('disconnect', function(){
