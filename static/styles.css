@@ -54,6 +54,12 @@
     font-size: 1.1em;
   }
 
+  #nameForm div {
+    color: #F5F5F5;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
   #messageForm {
     font-size: 1.1em;
     background: #0F1626;
@@ -84,7 +90,6 @@
     display: none;
     width: 0;
   }
-
 
 
   /*------------------------------------*\

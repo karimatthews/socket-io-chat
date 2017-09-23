@@ -9,7 +9,15 @@ $(function () {
   var username
 
   // join room
-  socket.emit('join room', document.referrer)
+  var roomName = window.name || document.referrer
+  socket.emit('join room', roomName)
+
+  if (roomName) {
+    var readableRoomName = roomName.substring(roomName.lastIndexOf('//')+2,roomName.lastIndexOf('.'))
+    $('#roomName').text("Join the "+ readableRoomName + " chat")
+  } else {
+    $('#roomName').text("Sorry, we don't know where you are")
+  }
 
   // keep message scrolled to the bottom
   function updateScroll(){
