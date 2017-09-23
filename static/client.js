@@ -11,8 +11,10 @@ $(function () {
   // join room
   var roomName = window.name || document.referrer
   socket.emit('join room', roomName)
+
   if (roomName) {
-    $('#roomName').text("Join the conversation about "+ roomName)
+    var readableRoomName = roomName.substring(roomName.lastIndexOf('//')+2,roomName.lastIndexOf('.'))
+    $('#roomName').text("Join the "+ readableRoomName + " chat")
   } else {
     $('#roomName').text("Sorry, we don't know where you are")
   }
