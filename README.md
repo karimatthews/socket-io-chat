@@ -15,3 +15,5 @@ Insert the following script tag somewhere in your page:
 ```
 
 If you're uncomfortable putting a script tag in, you can figure out your page's origin and just put the iframe in yourself.
+
+![Screenshot](screenshot.png)
