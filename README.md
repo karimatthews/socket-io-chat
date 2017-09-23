@@ -9,7 +9,7 @@ Insert the following script tag somewhere in your page:
 ```
 <script>
   document.body.insertAdjacentHTML('beforeend',
-    "<iframe style='position: fixed; bottom: 0; right: 0; height: 300; width: 300;' src='https://cordial-chat.herokuapp.com' name='" + document.location.origin + "' />"
+    "<iframe style='position: fixed; bottom: 0; right: 0; height: 300; width: 300; border: 1px solid orange;' src='https://cordial-chat.herokuapp.com' name='" + document.location.origin + "' />"
   )
 </script>
 ```
