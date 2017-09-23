@@ -101,6 +101,7 @@ $(function () {
 
   //Handles updates
   socket.on('chat update', function(msg){
+    debugger
     $('#messages').append(
       $('<div>').addClass("message-container"
     ).append( // adds the new message to the messages list
