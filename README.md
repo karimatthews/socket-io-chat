@@ -1,10 +1,10 @@
-# Cordial Chat
+# Socket.io Website Chat
 
-A zero-fuss way for users of your website to chat with each other. See it in action [here](https://karimatthews.github.io/socket-io-chat/).
+A zero-fuss way for users of your website to chat with each other. See it in action [here](https://karimatthews.github.io/socket-io-chat/). Built with socket.io, node and express.
 
 ## Installation
 
-Insert the following script tag somewhere in your page:
+Insert the following script tag anywhere in your page:
 
 ```
 <script>
